@@ -13,6 +13,9 @@ and [Fastify](https://fastify.dev/)
 Code related to React Router lives in the `client` directory (components,
 stylesheets etc)
 
+React Router client loaders are combined with react-query. There is a working
+example to copy paste
+
 All Fastify code is inside the `server` directory
 
 ## Commands
