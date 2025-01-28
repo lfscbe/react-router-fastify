@@ -2,9 +2,7 @@ import {useQuery} from '@tanstack/react-query'
 import {usersQueryOptions} from '@routes/index.query'
 
 export function Home() {
-  const {data} = useQuery({
-    ...usersQueryOptions('index'),
-  })
+  const {data} = useQuery(usersQueryOptions('index'))
   const {users} = data
   return (
     <section className="mx-auto mt-8 max-w-fit">

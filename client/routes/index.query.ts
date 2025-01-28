@@ -10,4 +10,5 @@ export const usersQueryOptions = (
     const res = await fetch('/api/users')
     return res.json()
   },
+  staleTime: 5000,
 })
