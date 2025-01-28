@@ -6,7 +6,7 @@ import type {LoggerOptions} from 'pino'
 import {usersRouter} from './users.js'
 
 const {NODE_ENV = 'development'} = process.env
-const logLevel = process.env.LOG_LEVEL || 'info'
+const logLevel = process.env.LOG_LEVEL || 'warn'
 const loggerOptions: Record<'development' | 'production', LoggerOptions> = {
   development: {
     level: logLevel,
@@ -35,16 +35,14 @@ const host = process.env.HOST || 'localhost'
 const portToUse = await getPort({
   port: portNumbers(desiredPort, desiredPort + 100),
 })
-await app.listen({
+const address = await app.listen({
   port: portToUse,
   host,
-  listenTextResolver: (address) => {
-    return `✅ server listening on ${address}`
-  },
 })
+console.log(`✅ ${NODE_ENV} server started: ${address}`)
 
 if (portToUse !== desiredPort) {
-  app.log.info(
+  app.log.warn(
     `⚠️  Port ${desiredPort} is not available, using ${portToUse} instead.`,
   )
 }

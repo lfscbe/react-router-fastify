@@ -16,7 +16,8 @@
     "check:type": "echo 'Checking typescript...' && react-router typegen && tsc --noEmit && tsc --noEmit --project tsconfig.server.json",
     "check:eslint": "echo 'Checking eslint...' && eslint --ext .js,.ts,.tsx .",
     "check:format": "prettier --check .",
-    "start": "NODE_ENV=production node ./build/fastify/start.js"
+    "start": "NODE_ENV=production node ./build/fastify/start.js",
+    "typegen": "react-router typegen"
   },
   "dependencies": {
     "@mcansh/remix-fastify": "^4.0.4",

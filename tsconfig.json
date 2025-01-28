@@ -19,9 +19,10 @@
     "paths": {
       "@client/*": ["./client/*"],
       "@server/*": ["./server/*"],
-      "@components/*": ["./client/components/*"],
       "@routes/*": ["./client/routes/*"],
-      "~/c": ["./*"]
+      "@components/*": ["./client/components/*"],
+      "@util/*": ["./client/util/*"],
+      "@t/*": ["./types/*"]
     },
     "noEmit": true,
     "rootDirs": [".", "./.react-router/types"],
