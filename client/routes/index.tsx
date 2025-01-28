@@ -9,8 +9,9 @@ export const meta: MetaFunction = () => {
   return [{title: 'React Router + Fastify'}]
 }
 
-// eslint-disable-next-line
-export async function clientLoader(props: Route.ClientLoaderArgs): Promise<{users: string[]}> {
+export async function clientLoader(
+  props: Route.ClientLoaderArgs, // eslint-disable-line
+): Promise<{users: string[]}> {
   return queryClient.ensureQueryData(usersQueryOptions('index'))
 }
 

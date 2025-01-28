@@ -1,5 +1,4 @@
 export type UsersResponse = {users: string[]}
-
 import type {EnsureQueryDataOptions} from '@tanstack/react-query'
 
 export const usersQueryOptions = (
