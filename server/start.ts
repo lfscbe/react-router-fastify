@@ -27,8 +27,10 @@ const app = fastify({
   logger: loggerOptions[NODE_ENV],
 })
 
-await app.register(reactRouterFastify)
-await app.register(usersRouter, {prefix: '/api'})
+await Promise.all([
+  app.register(reactRouterFastify),
+  app.register(usersRouter, {prefix: '/api'}),
+])
 
 const desiredPort = Number(process.env.PORT) || 5173
 const host = process.env.HOST || 'localhost'
