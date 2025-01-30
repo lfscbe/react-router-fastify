@@ -9,15 +9,18 @@
   "author": "Simon Smith <simonsmith@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "react-router build && tsc --project tsconfig.server.json && run-s 'js-ext'",
+    "build": "NODE_ENV=production run-s 'build:react' 'build:server' 'build:ext'",
+    "build:ext": "ts-add-js-extension --dir build/fastify",
+    "build:react": "react-router build",
+    "build:server": "tsc --project tsconfig.server.json",
     "check": "run-p 'check:*'",
     "check:eslint": "echo 'Checking eslint...' && eslint --ext .js,.ts,.tsx .",
     "check:format": "prettier --check .",
-    "check:type": "echo 'Checking typescript...' && react-router typegen && tsc --noEmit && tsc --noEmit --project tsconfig.server.json",
+    "check:type": "echo 'Checking typescript...' && run-s typegen 'build:server --noEmit' 'tsc --noEmit'",
     "dev": "tsx watch ./server/start",
     "format": "prettier --write .",
-    "js-ext": "ts-add-js-extension --dir build/fastify",
-    "start": "NODE_ENV=production node ./build/fastify/start.js",
+    "start": "NODE_ENV=production node --env-file-if-exists=.env --env-file-if-exists=.env.production ./build/fastify/start.js",
+    "tsc": "tsc",
     "typegen": "react-router typegen"
   },
   "dependencies": {
