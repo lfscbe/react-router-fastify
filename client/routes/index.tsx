@@ -11,7 +11,6 @@ export function clientLoader(): Promise<{users: string[]}> {
   return ensureUsersData()
 }
 
-// eslint-disable-next-line
 export default function Index() {
   return (
     <main>
