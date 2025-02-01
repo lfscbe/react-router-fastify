@@ -1,4 +1,4 @@
-import {useUsersQuery} from '@routes/index.query'
+import {useUsersQuery} from '@routes/index.queries'
 
 export function Home() {
   const {data} = useUsersQuery()

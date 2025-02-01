@@ -1,4 +1,4 @@
-import {ensureUsersData} from './index.query'
+import {ensureUsersData} from './index.queries'
 import {Home} from '@components/Home'
 
 import type {MetaFunction} from 'react-router'
