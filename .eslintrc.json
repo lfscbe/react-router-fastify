@@ -10,7 +10,7 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "plugin:react-hooks/recommended"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
