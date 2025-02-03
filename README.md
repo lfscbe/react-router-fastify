@@ -32,8 +32,9 @@ of each route, and then within the relevant page component like `Home`.
 The logic for the queries in stored in a relevant `<routeName>.queries.ts`
 
 Read more:
-* https://tkdodo.eu/blog/react-query-meets-react-router
-* https://tkdodo.eu/blog/effective-react-query-keys#colocate
+
+- https://tkdodo.eu/blog/react-query-meets-react-router
+- https://tkdodo.eu/blog/effective-react-query-keys#colocate
 
 ## Commands
 
