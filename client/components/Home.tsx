@@ -1,6 +1,6 @@
 import {useUsersQuery} from '@routes/index.queries'
 
-export function Home() {
+export const Home = () => {
   const {data} = useUsersQuery()
   const {users} = data
   return (
@@ -16,4 +16,4 @@ export function Home() {
       </ul>
     </section>
   )
-}
+};

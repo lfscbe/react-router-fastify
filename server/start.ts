@@ -1,9 +1,8 @@
 import {fastify} from 'fastify'
 import {reactRouterFastify} from '@mcansh/remix-fastify/react-router'
 import getPort, {portNumbers} from 'get-port'
-import type {LoggerOptions} from 'pino'
-
 import {usersRouter} from './users'
+import type {LoggerOptions} from 'pino'
 
 const {NODE_ENV = 'development'} = process.env
 const logLevel = process.env.LOG_LEVEL || 'warn'
