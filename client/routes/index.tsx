@@ -7,7 +7,7 @@ export const meta: MetaFunction = () => {
   return [{title: 'React Router + Fastify'}]
 }
 
-export const clientLoader = (): Promise<{users: string[]}> => ensureUsersData();
+export const clientLoader = (): Promise<{users: string[]}> => ensureUsersData()
 
 export default function Index() {
   return (
