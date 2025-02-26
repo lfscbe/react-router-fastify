@@ -1,7 +1,7 @@
-import {Links, Meta, Outlet, Scripts, ScrollRestoration} from 'react-router'
 import {QueryClientProvider} from '@tanstack/react-query'
 import {ReactQueryDevtools} from '@tanstack/react-query-devtools'
 import {queryClient} from '@util/react-query'
+import {Links, Meta, Outlet, Scripts, ScrollRestoration} from 'react-router'
 import type {LinksFunction} from 'react-router'
 
 import './styles/app.css'
