@@ -18,7 +18,7 @@
     "biome:check": "biome check",
     "fix": "biome check --fix",
     "format": "biome format --write .",
-    "dev": "tsx watch ./server/start",
+    "dev": "nodemon",
     "start": "NODE_ENV=production node --env-file-if-exists=.env --env-file-if-exists=.env.production ./build/fastify/start.js",
     "tsc": "tsc",
     "typegen": "react-router typegen"
@@ -46,6 +46,7 @@
     "@types/node": "^22.13.2",
     "@types/react": "^19.0.8",
     "@types/react-dom": "^19.0.3",
+    "nodemon": "^3.1.9",
     "npm-run-all2": "^7.0.2",
     "pino-pretty": "^13.0.0",
     "tailwindcss": "^4.0.6",
