@@ -1,47 +1,38 @@
 import {reactRouterFastify} from '@mcansh/remix-fastify/react-router'
 import {fastify} from 'fastify'
 import getPort, {portNumbers} from 'get-port'
-import type {LoggerOptions} from 'pino'
-import {usersRouter} from './users'
-
-const {NODE_ENV = 'development'} = process.env
-const logLevel = process.env.LOG_LEVEL || 'warn'
-const loggerOptions: Record<'development' | 'production', LoggerOptions> = {
-  development: {
-    level: logLevel,
-    transport: {
-      target: 'pino-pretty',
-      options: {
-        translateTime: 'HH:MM:ss',
-        ignore: 'pid,hostname',
-      },
-    },
-  },
-  production: {
-    level: logLevel,
-  },
-}
+import {usersRouter} from './api/users'
+import env from './util/env'
+import {log} from './util/log'
 
 const app = fastify({
-  logger: loggerOptions[NODE_ENV],
+  loggerInstance: log,
+  disableRequestLogging: !env.server.isProduction,
 })
 
 app.register(reactRouterFastify)
 app.register(usersRouter, {prefix: '/api'})
 
-const desiredPort = Number(process.env.PORT) || 5173
-const host = process.env.HOST || 'localhost'
-const portToUse = await getPort({
-  port: portNumbers(desiredPort, desiredPort + 100),
-})
-const address = await app.listen({
-  port: portToUse,
-  host,
-})
-console.log(`✅ ${NODE_ENV} server started: ${address}`)
+const startServer = async () => {
+  const desiredPort = Number(env.server.port)
+  const portToUse = await getPort({
+    port: portNumbers(desiredPort, desiredPort + 100),
+  })
 
-if (portToUse !== desiredPort) {
-  app.log.warn(
-    `⚠️  Port ${desiredPort} is not available, using ${portToUse} instead.`,
-  )
+  try {
+    const address = await app.listen({port: portToUse, host: env.server.host})
+    log.info(`🚀 Server started in ${env.server.nodeEnv} mode at ${address}`)
+    log.info(`🤖 Log level: "${env.server.logLevel}"`)
+
+    if (portToUse !== desiredPort) {
+      log.warn(
+        `! Port ${desiredPort} is not available, using ${portToUse} instead.`,
+      )
+    }
+  } catch (error) {
+    log.error(error instanceof Error ? error.message : 'Failed to start server')
+    process.exit(1)
+  }
 }
+
+await startServer()
