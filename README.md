@@ -43,8 +43,9 @@ Read more:
 | `npm install`    | Installs dependencies                    |
 | `npm run dev`    | Starts the vite development server       |
 | `npm run build`  | Builds the production site to `./build/` |
-| `npm run format` | Formats files with Prettier              |
+| `npm run format` | Formats files with Biome                 |
 | `npm run check`  | Runs all linter checks                   |
+| `npm run fix`    | Fix formatting and linting via Biome     |
 | `npm run start`  | Start the server with Node               |
 
 ## Credit
