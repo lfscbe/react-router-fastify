@@ -24,38 +24,38 @@
     "typegen": "react-router typegen"
   },
   "dependencies": {
-    "@mcansh/remix-fastify": "^4.0.6",
-    "@react-router/node": "^7.2.0",
-    "@react-router/serve": "^7.2.0",
-    "@tanstack/react-query": "^5.66.9",
+    "@mcansh/remix-fastify": "^4.0.8",
+    "@react-router/node": "^7.3.0",
+    "@react-router/serve": "^7.3.0",
+    "@tanstack/react-query": "^5.67.3",
     "fastify": "^5.2.1",
     "get-port": "^7.1.0",
     "isbot": "^5.1.23",
     "pino-http": "^10.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.2.0"
+    "react-router": "^7.3.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@react-router/dev": "^7.2.0",
-    "@tailwindcss/vite": "^4.0.9",
-    "@tanstack/eslint-plugin-query": "^5.66.1",
-    "@tanstack/react-query-devtools": "^5.66.9",
+    "@react-router/dev": "^7.3.0",
+    "@tailwindcss/vite": "^4.0.14",
+    "@tanstack/eslint-plugin-query": "^5.67.2",
+    "@tanstack/react-query-devtools": "^5.67.3",
     "@total-typescript/tsconfig": "^1.0.4",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "nodemon": "^3.1.9",
     "npm-run-all2": "^7.0.2",
     "pino-pretty": "^13.0.0",
-    "tailwindcss": "^4.0.9",
+    "tailwindcss": "^4.0.14",
     "ts-add-js-extension": "^1.6.5",
     "tsx": "^4.19.3",
-    "typescript": "^5.7.3",
-    "vite": "^6.2.0",
+    "typescript": "^5.8.2",
+    "vite": "^6.2.1",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^3.0.7"
+    "vitest": "^3.0.8"
   },
   "engines": {
     "node": ">=20.0.0"
