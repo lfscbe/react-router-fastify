@@ -1,6 +1,6 @@
 # React Router ❤️ Fastify
 
-This is a simple boilerplate to get an application running using [React Router 7](https://reactrouter.com/home)
+This is a boilerplate to start an application with [React Router 7](https://reactrouter.com/home)
 and [Fastify](https://fastify.dev/)
 
 ## Get Started
@@ -8,33 +8,43 @@ and [Fastify](https://fastify.dev/)
 1. Clone the repository
 2. Install the packages with your favourite package manager (there is no
    lockfile by default, so choose whatever suits you)
-3. Run the development server with `<package manager> run dev`
+3. Run the development server (`bun run dev`)
+4. Get ready for production with (`bun run build && bun run start`)
 
 ## Structure
 
 ```
 client
-├── components   # all your react components
-├── routes       # react-router components + query files
-├── styles       # any global styles
-└── util         # things like queryClient
-├── routes.ts
-├── root.tsx
+├── common                   # things shared across all features/pages
+│   ├── components
+│   │   ├── Container.tsx
+│   └── util
+│       ├── page-title.ts
+├── features                 # feature directory
+│   └── UserList             # features can contain whatever needed, components styles etc
+│       ├── components
+│       │   └── UserList.tsx
+│       └── index.ts         # a place to easily export things
+├── layouts
+│   └── Default.tsx
+├── pages                    # components rendered by routes
+│   ├── HomePage.tsx
+│   └── UserPage.tsx
+├── queries                  # functions, options etc for react-query
+│   └── users.ts
+├── root.ts
+├── routes
+│   ├── home.tsx             # react-router files, these data load and render from client/pages
+│   └── users.tsx
+├── routes.ts                # configure the routes here
+└── styles
+    └── app.css
 server
-├── start.ts     # setup the server. Add any API routes, db connections etc in this dir
-public
-types            # global types accessible to all
+├── api
+├── index.ts                  # does checks before starting the server
+├── start.ts                  # starts the Fastify server
+└── util                      # common utils
 ```
-
-One pattern utilised here is to integrate `react-query` with the `clientLoader`
-of each route, and then within the relevant page component like `Home`.
-
-The logic for the queries in stored in a relevant `<routeName>.queries.ts`
-
-Read more:
-
-- https://tkdodo.eu/blog/react-query-meets-react-router
-- https://tkdodo.eu/blog/effective-react-query-keys#colocate
 
 ## Commands
 
