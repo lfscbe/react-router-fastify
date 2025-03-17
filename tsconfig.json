@@ -26,11 +26,14 @@
     "verbatimModuleSyntax": true,
     "paths": {
       "@client/*": ["./client/*"],
-      "@server/*": ["./server/*"],
+      "@common/*": ["./client/common/*"],
+      "@features/*": ["./client/features/*"],
+      "@pages/*": ["./client/pages/*"],
+      "@queries/*": ["./client/queries/*"],
       "@routes/*": ["./client/routes/*"],
-      "@components/*": ["./client/components/*"],
-      "@util/*": ["./client/util/*"],
-      "@t/*": ["./types/*"]
+      "@rr/*": ["./.react-router/types/client/*"],
+      "@server/*": ["./server/*"],
+      "@shared/*": ["./shared/*"]
     },
     "noEmit": true,
     "rootDirs": [".", "./.react-router/types"],
