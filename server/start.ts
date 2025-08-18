@@ -3,6 +3,7 @@ import {fastify} from 'fastify'
 import getPort, {portNumbers} from 'get-port'
 import {usersRouter} from './api/users'
 import {log} from './util/log'
+import {hostsRouter} from './api/hosts'
 
 const {
   LOG_LEVEL: logLevel,
@@ -18,6 +19,7 @@ const app = fastify({
 
 app.register(reactRouterFastify)
 app.register(usersRouter, {prefix: '/api'})
+app.register(hostsRouter, {prefix: '/api'})
 
 const startServer = async () => {
   const desiredPort = Number(port)
